@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/content/site")
+</head>
+<body>
+    <div id="header">
+        <h1 font-family:"宋体"><a href="/">欢迎来到音乐商店</a></h1>
+        <ul id="navlist">
+            <li class="first"><a href="@Url.Content("~")" id="current">主页</a></li>
+            <li><a href="@Url.Content("~/Store/")">音乐种类</a></li>
+            <li>@{Html.RenderAction("CartSummary", "ShoppingCart");}</li>
+            <li><a href="@Url.Content("~/StoreManager/")">用户登录</a></li>
+        </ul>
+    </div>
+    <a href="#top" title="返回顶部" id="scroll-top-link" aria-hidden="true" data-av_icon="" data-av_iconfont="entypo-fontello">
+        <span class="avia_hidden_link_text">
+            返回顶部
+        </span>
+    </a>
+    @{Html.RenderAction("GenreMenu", "Store");}
+    <div id="main">
+        @RenderBody()
+    </div>
+    <div id="footer">
+        小组成员：刘奇奇，李家保，代雨辰</a>
+    </div>
+    @Scripts.Render("~/scripts/jquery")
+</body>
+</html>
